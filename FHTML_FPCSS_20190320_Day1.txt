@@ -1,0 +1,303 @@
+
+---------HTML---------
+
+Basic Structure of HTML:
+"
+<!DOCTYPE HTML> # DTD-Document type definition, tell html version we are using.
+	<HTML>
+		<HEAD> #Contains headers and metadata
+			<BODY> #Contains what will be shown on the web page
+			</BODY>
+		</HEAD>
+	</HTML>
+"
+
+Types of HTML tags:
+	Container elements: Which comes with end tag
+	Empty elements: Comes without end tag
+	Inline:
+	Block:
+	
+[
+Comments syntax: <!--This is the comment body-->
+]
+
+Head Element: <head></head>
+	<title></title>
+	<link>
+	<style></style>
+	<script></script>
+	
+Body Element: <body></body> 
+	<form></form>
+	<input>
+	<table></table>
+	<img>
+	<audio>
+	<video>
+	<br>
+	<div></div>
+	<span></span>
+	<h1></h1>
+[
+bgcolor="red"
+id="abc"
+]
+	
+Form Element: <form></form>
+	Attributes:
+	name="__" : name that identifies form
+	action="__" : fills in the url of destination page
+	method="__" : two types of values , "get" and "post"
+	novalid : skips validation upon submission.
+	
+	Elements Inside:
+	<label></label>:
+		Associated with other elements inside ,like <input>,
+													<select></select>,
+													<textarea></textarea>
+		Attribute:
+		for="__"
+		
+	<input>:
+		Attribute:
+		id="__" : Id should be the same as for attribute of the corresponding label.
+		required: Alerts the user which are required
+		type="__" : type of input value , eg "text" for text type
+		value="__" : gives default value for the input
+		step="__" : range with which the value with increment / decrement
+		list="__" : lists the values based on id
+		More on http://ilp02/stream/Course/FHTML/page/24
+		
+		More on type="__" :
+		Before HTML 5
+			text
+			password
+			radio -> can only select single radio for same name
+			checkbox -> can select multiple checkbox for same name
+			button  -> if type="button" , text inside button will come from value="__"
+			submit
+			reset
+			
+[
+	Used checked for radio and checkbox if it be checked during load 
+]
+		After HTML 5
+			http://ilp02/stream/Course/FHTML/page/27
+	
+	<select></select> : Useful to create a dropdown list
+		Syntax: <select>
+					<option>abc</option>
+					<option>xyz</option>
+				</select>
+		Attributes:
+			autofocus
+			name
+			disabled
+			multiple
+			size
+	
+	<textarea></textarea> : Generates a text area where can write anything.
+		Syntax: <textarea rows="2" cols="15"></textarea>
+		
+		Attributes:
+			http://ilp02/stream/Course/FHTML/page/30
+
+	<button></button> : generates a clickable button to perform a specific action
+		Syntax:
+			<button type="submit">button text</button>
+		Attributes:
+			http://ilp02/stream/Course/FHTML/page/31
+			
+Table:
+	Syntax:
+	<table></table> 	->table .... <table border=""></table> (optional)
+		<tr></tr> 		->row
+			<td></td>	->column
+			<th></th>	->column heading			
+[
+	rowspan and colspan attributes can be used to merge two or more rows or columns respectively.
+]
+
+Hyperlinks:
+	Syntax:
+	<a href="link.html">LinkText</a> --> <img> can be used instead of LinkText for using image as link.
+	
+	Attributes:
+		href: tells what link to open
+		target: tells where to display linked source
+			target="_blank"
+					_self -->default
+					_parent
+					_top
+					
+Media:
+	<img>
+		Syntax: <img src="soruceLocation" alt="Alternate text">
+		Attributes:
+			src
+			alt
+			width
+			height
+			border
+	<audio></audio>
+		Syntax: <audio src="fileLocation">Text displayed if not supported</audio>
+		Attributes:
+			src
+			controls
+			loop
+			autoplay
+			muted
+	<video></video>
+		Syntax: <video src="fileLocation">Text if unsupported</video>
+		Attributes:
+			src
+			controls
+			loop
+			autoplay
+			muted
+			height
+			width
+			poster
+	<source> : can be used for both audio and video
+		Syntax: <audio>
+					<source src="abc.wav"/>
+					<source src="abc.mp3"/>
+				</audio>
+				if .wav is supported by the browser, it will play , else it will pick up the next.
+		[src in audio or video needs to be missing for <source> to work]
+		
+Text Formating:
+	Heading tag:
+		<h1></h1> to <h6></h6>
+	Cheat Sheet: http://ilp02/stream/Course/FHTML/page/64
+	
+List: Unordered list, Ordered list, Definition list
+	Unordered list:
+	Syntax:<ul type="">  -> type="disc/cirlce/square/none"
+				<li></li>
+				<li></li>
+			</ul>
+	Ordered List:
+	Syntax:	<ol type=""> -> type="1/A/a/I/i"
+				<li></li>
+				<li></li>
+			</ol>
+	Definition List: Purpose to give definition(dd) to a term(dt)
+	Syntax: <dl>
+				<dt>xyz</dt>
+					<dd>last 3 characters of alphabet</dd>
+			</dl>
+			
+
+---------CSS---------
+
+CSS: Cascading Style Sheets
+
+Written inside 	<body>
+					<style>
+						selector{
+							property: value;
+						}
+					</style>
+				</body>
+
+Syntax:					
+	selector{
+		property: value;
+	}
+	h1{
+		color:red;
+	}
+
+Types of selector: type,class,id,descendant selectors
+	type: applies css to all tags with h1
+		h1{
+		}
+	class: applies css to elements with class="className", class can be applied to multiple tags
+		.className{
+		}
+	id: applies css to elements with id="idvalue", id "should" be applied to single tag
+		#idvalue{
+		}
+	descendant selector: Usefull when we want to select tag inside other specific elements
+		selector1 selector2 {
+			property: value;
+		}
+		Eg:
+		div p{
+			color: red;
+		} --> would select <p> inside <div> tag for css action
+[
+	Precedence Order:
+		type<class<id
+]
+
+CSS Properties: Read more about them
+	Font:
+		font-family: calibri/"Times New Roman";
+		font-size: 20px;
+		font-style: italic;
+		font-variant: small-caps; -->read more about it 
+	Background:
+		background-image:url("File url");
+		background-repeat:
+		background-position: left/right;
+	Border:
+		border-width: 2px;
+		border-style: dotted;
+		border-color: blue;
+	Text:
+		text-align: center;
+		text-decoration: underline|overline;
+		text-transform: uppercase;
+	Color:
+		color: red/#0000FF[rrggbb from 00 to FF]/rgb(0,0,128) [ranging from 0-255];
+		opacity: 0.5; [range from 0 to 1];
+	Box:
+		margin: 30px;
+		width: 200px;
+		height: 50px;
+	
+	Unknown:
+	
+Ways to add CSS: inline,embedded,external
+	Inline: When added per element , like --> style="color: red;"
+	embedded: when added in <style></style> 
+	External: imported using <link rel="stylesheet" href="sheet_location" type="text/css">  ->type not mandatory , it's a mime to tell browser
+	
+	-External/Embedded < Inline CSS
+	-If External/Embedded both used and types are same, common properties overriden by last css 
+	-If both used but different types , then will be prefered based on precedence of type<class<id
+		
+Adding responsiveness: we use @media queries
+	Syntax:
+		@media only|not mediatype and (media feature:value){
+			property:value;
+		}
+	[only--> prevents old browser from appying them 
+	not--> negates the whole query
+	Works in internet explorar]
+	Eg:
+		@media only screen and (max-width:500px){
+			background-color:silver;
+		}
+		[Once screen size is of 500px or less , would apply the css
+		in place of screen , we can write speech,print or all]
+		
+Margin an Padding explained:
+	margin: 200px; --> left right top bottom all 200px margin.
+	margin: value1 value2; --> v1 = top bottom , v2= left right
+	margin: value1 value2 value3; v1=top , v2=left right, v3=bottom
+	margin: value1 value2 value3 value4;v1= top , v2= right , v3= bottom, v4=left
+	
+Positioning:
+	Static: default position
+	Absolute: position is applied based on entire webpage
+	Relative: position is set relative to it's Static/supposed be position
+	Fixed: position does not changes even when scroll is used
+	
+	Syntax:
+	selector{
+		position: static;
+	}

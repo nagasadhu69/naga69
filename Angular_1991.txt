@@ -1,0 +1,170 @@
+How to run a .ts file:
+	-type tsc filename.tsc
+	-after that a .js file with same name will be created 
+	-type node filename.js to execute the file
+	
+Datatypes:
+	-boolean
+	-number
+	-string inside '' or "" 
+	-any
+
+Keywords:
+	-var: global variable
+	-let: local variable
+	-const: constant variable
+	
+	Syntax:
+	let companyName;
+	companyName = "Infosys Limited";
+	[Data type is not declared]
+	
+	let addressLine1:string;
+	addressLine1 = "Corporate Headquarters, Electronics City";
+	addressLine1 = 12345;  //Will cause compilation error
+	[Datatype is declared]
+	
+	let addressLine2:string = "Bengaluru, Karnataka";
+	
+[
+var xyz:any;
+console.log(typeof(xyz)); // output is "undefined"
+]
+
+Arrays:
+	Declaration:
+	var arrayName;
+	arrayName=["a","b",2]; // can give anything 
+	
+	var arrayName:string[]; //will only accept string as array input
+	arrayName=["a","b","c"];
+	
+	let myGadgets4: object[] = [{ Brand: "Motorola", Cost: 15000, color: "Black" },
+                            { Brand: "MicroMax", Cost: 10000, color: "Gold" },
+                            { Brand: "Samsung", Cost: 20000, color: "White" }]; // can also declare like this
+	
+		-to access the above , syntax: console.log(myGadgets4[0]["Brand"]); // Will give Motorola as output
+		- using for ..... let i in {a:b, c:d} ... i iterates in a,c and b&c can be accessed like varName[i]
+	Accessing Arrays:
+		- can be accessed with index number
+			myGadgets4[0];
+		- can be accessed using a loop
+			1. for(let index=0;index<arr.length;index++){arr[index];}
+			2. for(let index in arr){arr[index];}
+			3. for(let temp_var of arr){console.log(temp_var);}
+			
+	Array have following functions:
+		- arr.pop() --> return the lastvarriable at last index
+	
+Functions:
+	Syntax:
+	function functionName(parameterName:datatype):returnType{
+	} //No need to type return type in case of void
+	
+	Default parameter: parameterName:datatype=value
+		takes the default value in case value not provided
+		if default parameter is not the last parameter, type "undefined" to tell that we not passing shit
+	
+	Optional Parameter: parameterName?:datatype
+		we pass optional parameter in last
+		if no value passed , varriable assigned undefined
+	
+	Rest parameters: (...parameterName:datatype[])
+		this accepts one or more varriables
+		will be considered as array type , so we perform array operations on it
+		this must also be the last parameter of the function
+		
+		
+Classes:
+	3.1 Basics:
+		Syntax:
+		class ClassName{
+			//body
+		}
+		
+	-Instace varriables are declared without using var or let or const
+	
+		Consructors: we use "constructor" keyword to declare a constructor
+ 			Syntax:
+			constructor(parameters){
+				this.instancevarriable=parameter; //this is used to reffer to instance variable
+			}
+		
+		Methods in a class:
+			methodName():returnType{ // No need to type "function" first
+				
+			}
+		
+		Creating object:
+			Syntax:
+			let objName:className=new className(/*Constructor varriables*/);
+			objName.methodName(/*Parameters*/);
+		Array of objects:
+			let obj1....;
+			let obj2.....;
+			let obj3......;
+			let arrayObj:className[]=[obj1,obj2,obj3];
+			
+			-can apply array operations on it , such as for in , for of etc.
+		
+		Access Modifier: default access type is default
+			Syntax:
+				private varriableName:datatype;
+				public functionName():returnType{}
+
+			- supports public private and protected types
+			- we need public getters and setters to access the private varriables
+	
+	3.2 Static Keyword: used to create a member of the class
+		- accessed using className.staticVariableName
+		
+		Syntax:
+			static variableName:datatype;
+	
+	3.3 Enums: used to define a set of constants
+		Syntax:
+		export enum enumName{
+			value1,
+			value2,
+			value3
+		}
+		- Values are static and public by default
+		- Default values are assigned like this :
+			value1= 0 [by default , can be changed]
+			value2=value1+1
+			value3=value2+1
+		- Create an another enum file with above syntax
+		- type import{EnumName} from './filename';
+		- access using EnumName.valueName
+		
+	4.1 Abstract Class and Methods:
+		-abstract method:
+			syntax:
+				abstract methodName():returnType;
+		- if any method is abstract, class is also abstract
+			syntax:
+				abstract class className{
+				}
+		- need to implement abstract method in child clas
+	4.2 Inheritence:
+		syntax:
+		class childClass extends parentClass{ // Inherits public and protected attributes
+		
+		}
+		
+		
+[
+console.log("1+2 is ",1+2); can also be written like
+console.log(`1+2 is ${1+2}`);
+]
+		Consructors can be inherited ...ie is parent class have a constructor but child class does not 
+			new childObj:childClassName=new childClassName(/*Parent constructor parameters*/);
+			above will asign the parameters to parent class variables
+			
+	4.3 Interfaces:
+		syntax:
+		interface InterfaceName{
+		}
+		class ClassName implements InterfaceName{
+		}
+		
